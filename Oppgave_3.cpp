@@ -56,7 +56,7 @@ void CourseCatalog::addCourses() {						//medlemsfunksjonen addCourses lar bruke
 		cout << "Emnets emnekode: " << endl; cin >> courseCodee;
 		cout << "Emnenavn: " << endl; cin >> courseNamee;
 		addCourse(courseCodee, courseNamee);
-																				//bruker addCourse-funksjonen med brukers input som parametre
+										//bruker addCourse-funksjonen med brukers input som parametre
 		string svar;
 		
 
