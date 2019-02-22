@@ -1,6 +1,6 @@
 #pragma once
 #include "std_lib_facilities.h"
 
-//string writeToFile();
+string writeToFile();
 
-//void readFromFile();
+void readFromFile();
