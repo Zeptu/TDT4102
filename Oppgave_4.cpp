@@ -3,26 +3,24 @@
 
 //LESING AV STRUKTURERT FIL 
 
-istream& operator>>(istream& is, Temps& t) { //istream kan være cin eller fil eller noe annet //får en input stream med to tall
-	double minVal;							 //lager en double variabel for minsteVerdi
-	double maxVal;							 //lager en double variabel for størsteVerdi
+istream& operator>>(istream& is, Temps& t) { 			//istream kan vÃ¦re cin eller fil eller noe annet //fÃ¥r en input stream med to tall
+	double minVal;						//lager en double variabel for minsteVerdi
+	double maxVal;						 //lager en double variabel for stÃ¸rsteVerdi
 
-	if (!is) {								 //dersom den ikke finner istreamen --> ERROR
+	if (!is) {						//dersom den ikke finner istreamen --> ERROR
 		error("ERROR");					
 	}
 	
 	is >> maxVal >> minVal;					 //Skriver ut ord-for-ord
 
-	t.min = minVal;							 //Temp t inneholder to verdier; maks og min
+	t.min = minVal;						//Temp t inneholder to verdier; maks og min
 	t.max = maxVal;
 
 	return is;
 }
-/*
-Denne funksjonen overlaster >> - operatoren.
-Skal hente informasjon fra en istream og skrive den til vår type Temps.
-*/
 
+//Denne funksjonen overlaster >> - operatoren.
+//Skal hente informasjon fra en istream og skrive den til vÃ¥r type Temps.
 
 
 //Les Temps fra fil. Les alle temperaturene fra filen og lagre dem som temps-objekter i en vector
@@ -42,12 +40,11 @@ void readTempsFromFile() {
 	}
 }
 /*
-Tar alle temperaturene helt til det ikke er flere temperaturer å finne:
 while (temp_file >> t) FORKLARING
 Filen (temp_file) blir en input stream.
 Input-streamen sendes med ' >> ' til Temps t
-t blir da lagd ut av de første temperaturene i streamen
-Så blir t pushet_back til vectoren,
-siden streamen ikke er tom, så sender den de neste temperaturene til Temps t.
-og så gjør den dette på mytt helt til streamen er tom.
+t blir da lagd ut av de fÃ¸rste temperaturene i streamen
+SÃ¥ blir t pushet_back til vectoren,
+siden streamen ikke er tom, sÃ¥ sender den de neste temperaturene til Temps t.
+og sÃ¥ gjÃ¸r den dette pÃ¥ mytt helt til streamen er tom.
 */
