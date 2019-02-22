@@ -1,12 +1,12 @@
 #include "std_lib_facilities.h"
 #include "Oppgave_1.h"
-/*
-ostream = output stream, eks: cout (skriver ut informasjon)
-ifstream = input stream, eks: cin (tar inn informasjon)
 
-*/
 
-/*string writeToFile() {		//Funksjonen skriver til fil
+//ostream = output stream, eks: cout (skriver ut informasjon)
+//ifstream = input stream, eks: cin (tar inn informasjon)
+
+
+string writeToFile() {						//Funksjonen skriver til fil
 	string input{ "" };
 	ofstream ofs{ "mintekstfil.txt" };
 	
@@ -24,10 +24,10 @@ ifstream = input stream, eks: cin (tar inn informasjon)
 	return input;
 }
 
-void readFromFile() {			//Funksjonen leser fra fil 
+void readFromFile() {						//Funksjonen leser fra fil 
 	string linje{ "" };
-	ifstream ifs{ "mintekstfil2.txt" }; //filen den leser fra
-	ofstream ofs{ "nymintekstfil2.txt" };	//den nye filen den skriver til
+	ifstream ifs{ "mintekstfil2.txt" }; 			//Navngi fil den skal lese fra 
+	ofstream ofs{ "nymintekstfil2.txt" };			//Navngi den nye filen den skal lese til
 	
 	if (!ifs) {
 		error("can not open file");
@@ -42,7 +42,7 @@ void readFromFile() {			//Funksjonen leser fra fil
 	
 	}	
 }
-*/
+
 
 
 
