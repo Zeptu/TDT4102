@@ -37,7 +37,6 @@ public:
 
 	//friend std::iostream& operator<<(std::iostream& os, const Matrix& mat); //overlaster << for elementer av klassen
 	
-
 };
 std::ostream& operator<<(std::ostream& os, const Matrix& mat);
 
