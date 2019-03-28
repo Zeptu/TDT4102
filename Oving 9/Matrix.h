@@ -5,23 +5,23 @@
 class Matrix
 {
 private:
-	double **matrix;						//Matrisen matrix, en dobbeltpeker(dvs: peker først på minneadressen til listen, deretter på minneadressen til det ønskede elementet i listen)
+	double **matrix;	//Matrisen matrix, en dobbeltpeker(dvs: peker fÃ¸rst pÃ¥ minneadressen til listen, deretter pÃ¥ minneadressen til det Ã¸nskede elementet i listen)
 
-	int M, N;								//Antall rader(M) og kolonner(N) i matrisen
+	int M, N;		//Antall rader(M) og kolonner(N) i matrisen
 
 
 public:
-	Matrix();								//Defaultkonstruktør (standardkonstruktør)	
+	Matrix();				//DefaultkonstruktÃ¸r (standardkonstruktÃ¸r)	
 	
-	Matrix(int nRows, int nColumns);		//Konstruktør
+	Matrix(int nRows, int nColumns);	//KonstruktÃ¸r
 
-	Matrix(const Matrix & rhs);				//Kopikonstruktør
+	Matrix(const Matrix & rhs);		//KopikonstruktÃ¸r
 	
-	Matrix & operator=(Matrix rhs);			//Tilordningsoperator overskrivning
+	Matrix & operator=(Matrix rhs);		//Tilordningsoperator overskrivning
 
-	explicit Matrix(int nRows);				//explicit nøkkelordeet: gjør at den aktuelle konstruktøren IKKE kan brukes til å automatisk konvertere andre typer til denn aktuelle klassen 
+	explicit Matrix(int nRows);		//explicit nÃ¸kkelordeet: gjÃ¸r at den aktuelle konstruktÃ¸ren IKKE kan brukes til Ã¥ automatisk konvertere andre typer til denn aktuelle klassen 
 
-	~Matrix();								//Skal frigi/ slette alt dynamisk allokert minne
+	~Matrix();				//Skal frigi/ slette alt dynamisk allokert minne
 
 	double getMatrix(int row, int col) const;
 	
@@ -33,9 +33,9 @@ public:
 
 	bool isValid() const;
 
-	int& operator[](int& index) const;											//overlaster [] for elementer av klassen
+	int& operator[](int& index) const;     //overlaster [] for elementer av klassen
 
-	//friend std::iostream& operator<<(std::iostream& os, const Matrix& mat);	//overlaster << for elementer av klassen
+	//friend std::iostream& operator<<(std::iostream& os, const Matrix& mat); //overlaster << for elementer av klassen
 	
 
 };
