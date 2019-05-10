@@ -1,29 +1,29 @@
 #include "Dummy.h"
 
 /*
-KOPIKONSTRUKTØR for Dummy
+KOPIKONSTRUKTÃ˜R for Dummy
 
 - tar inn en const referanse
-- allokerer et nytt dynamisk allokert minneområde
-- og kopierer verdien inn i minneområdet
+- allokerer et nytt dynamisk allokert minneomrÃ¥de
+- og kopierer verdien inn i minneomrÃ¥det
 
 */
 
-//Kopikonstruktør for Dummy - klassen
+//KopikonstruktÃ¸r for Dummy - klassen
 Dummy::Dummy(const Dummy& dum)
 {
-	this->num = new int{};							//Allokerer minne for innholdet til num
-	*(this->num) = *dum.num;						//Kopierer verdien fra num til Kopierer verdier fra other til this
+	this->num = new int{};							//Allokerer NYTT MINNE for innholdet til num
+	*(this->num) = *dum.num;						//Kopierer VERDIEN fra num til Kopierer verdier fra other til this
 
 }
 
-//*(this->num) deallokerer, dvs får INNHOLDET 
+//*(this->num) deallokerer, dvs fÃ¥r INNHOLDET 
 
-//Kopikonstruktører gir masse mening!!
+//KopikonstruktÃ¸rer gir masse mening!!
 /*
-Må passe på at de to objektene ikke okkuperer samme plass i minnet
+MÃ¥ passe pÃ¥ at de to objektene ikke okkuperer samme plass i minnet
 Derfor allokerer vi nyttMINNE for det nye objektet
-Også kopierer vi VERDIEN fra det gamle objektet over til det nye objektet
+OgsÃ¥ kopierer vi VERDIEN fra det gamle objektet over til det nye objektet
 */
 
 
@@ -31,17 +31,17 @@ Også kopierer vi VERDIEN fra det gamle objektet over til det nye objektet
 Dummy &Dummy::operator=(Dummy rhs)
 {
 	//Tar inn en rhs som cbV
-	//swap bytter om verdien på to variabler
-	//Her bruker vi swap til å bytte om verdien på de to pekerne
-	//Vi swapper verdien på innholdet som lå på minneadressen num - pekeren pekte til
+	//swap bytter om verdien pÃ¥ to variabler
+	//Her bruker vi swap til Ã¥ bytte om verdien pÃ¥ de to pekerne
+	//Vi swapper verdien pÃ¥ innholdet som lÃ¥ pÃ¥ minneadressen num - pekeren pekte til
 	//med pekeren til et Dummy-element (rhs)
 	swap(this->num, rhs.num);
-	//Returnerer en deallokert this. Dette vil gi oss innholdet som ligger på minneområdet this-pekeren
+	//Returnerer en deallokert this. Dette vil gi oss innholdet som ligger pÃ¥ minneomrÃ¥det this-pekeren
 	//peker til. Dette vil gi oss innholdet til Dummy-elementet. 
 	return *this;
 }
 
-//Bruker dummyTest til å teste at kopikonstruktøren og overskrivningen av tilordningsoperatoren fungerte
+//Bruker dummyTest til Ã¥ teste at kopikonstruktÃ¸ren og overskrivningen av tilordningsoperatoren fungerte
 //som forventet
 void dummyTest()
 {
@@ -59,6 +59,6 @@ void dummyTest()
 	std::cout << "b: " << *b.num << std::endl;
 	std::cout << "c: " << *c.num << std::endl;
 
-	std::cin.get();								//For å hindre at programmet avslutter med en gang
+	std::cin.get();								//For Ã¥ hindre at programmet avslutter med en gang, alternativt  kunne vi brukt typ systen pause elrno
 							
 }
