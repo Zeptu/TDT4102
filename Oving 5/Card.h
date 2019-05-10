@@ -4,8 +4,8 @@
 
 //Oppretter scoped-enum
 
-enum class Suits{ clubs, diamonds, hearts, spades };		//Lager enum-class typen Suits
-enum class Rank{ two = 2, three, four, five, six, seven, eight, nine, ten, jack, queen , king , ace };	//Lager enum-class typen Rank
+enum class Suits{ clubs, diamonds, hearts, spades };		//Lager enum-class-typen Suits
+enum class Rank{ two = 2, three, four, five, six, seven, eight, nine, ten, jack, queen , king , ace };	//Lager enum-class-typen Rank
 
 const map<Suits, string> suitStrings {	//map_1
 	{Suits::clubs, "Clubs"},
@@ -80,24 +80,24 @@ string suitToString(const Suits &suit);
 string rankToString(const Rank &rank);
 
 struct CardStruct {
-	CardStruct() = default;							  //Default konstruktør
-	CardStruct(Suits s, Rank r) : s{ s }, r{ r } {};  //Delegerende konstruktør 
-	Suits s;										 //Variabel av typen Suits
-	Rank r;											 //Variabel av typen Rank
+	CardStruct() = default;					//Default konstruktÃ¸r
+	CardStruct(Suits s, Rank r) : s{ s }, r{ r } {};  	//Delegerende konstruktÃ¸r 
+	Suits s;						//Variabel av typen Suits
+	Rank r;							//Variabel av typen Rank
 };
 /*
-En struct er som en klasse, bare at alt er public med mindre noe annet blir spesifisert, og vi bruker den som regel bare til å lagre data (eks variabler). 
-I klasser har vi konstruktører. Det er konstruktørene som "aktiverer" medlemsfunskjonene og medlemsvariablene i klassen. Konstruktører brukes til å initialisere objekter fra sin klasse.
-Konstruktører finner vi også i Structs (husk: Klasse == Struct (nesten)). I Structen CardStruct har vi to konstruktører. En default konstruktør som kalles dersom 
-en medlemsfunksjon ikke blir gitt parametere, og en annen konstruktør som kalles dersom en funksjon blir gitt parametere. (tror jeg)
-DELEGERENDE KONSTRUKTØRER lar oss velge hvilken konstruktør vi ønsker å bruke, selv om vi har flere alternativer. (tror jeg)
+En struct er som en klasse, bare at alt er public med mindre noe annet blir spesifisert, og vi bruker den som regel bare til Ã¥ lagre data (eks variabler). 
+I klasser har vi konstruktÃ¸rer. Det er konstruktÃ¸rene som "aktiverer" medlemsfunskjonene og medlemsvariablene i klassen. KonstruktÃ¸rer brukes til Ã¥ initialisere objekter fra sin klasse.
+KonstruktÃ¸rer finner vi ogsÃ¥ i Structs (husk: Klasse == Struct (nesten)). I Structen CardStruct har vi to konstruktÃ¸rer. En default konstruktÃ¸r som kalles dersom 
+en medlemsfunksjon ikke blir gitt parametere, og en annen konstruktÃ¸r som kalles dersom en funksjon blir gitt parametere. (tror jeg)
+DELEGERENDE KONSTRUKTÃ˜RER lar oss velge hvilken konstruktÃ¸r vi Ã¸nsker Ã¥ bruke, selv om vi har flere alternativer. (tror jeg)
 */
 
 string toString(CardStruct c);
 
 string toStringShort(CardStruct c);
 
-class Card {						//ikke spesifisert gjør det automatisk private(klasse), og public (struct) 
+class Card {						//ikke spesifisert gjÃ¸r det automatisk private(klasse), og public (struct) 
 public:								
 	Card();
 	Card(Suits suit, Rank rank);
@@ -111,13 +111,13 @@ public:
 private:
 	Suits s;
 	Rank r;
-	bool valid;						//sjekker om kortet er gyldig
+	bool valid;					//sjekker om kortet er gyldig
 };
 
-/*Teori: Vi ønsker å representere spillkortet som en klasse framfor en struct fordi vi bruker klasser
-når vi ønsker å organisere mer enn bare data, eks funskjoner mm. Invarianten i en klasse er private som default, i motsetning
+/*Teori: Vi Ã¸nsker Ã¥ representere spillkortet som en klasse framfor en struct fordi vi bruker klasser
+nÃ¥r vi Ã¸nsker Ã¥ organisere mer enn bare data, eks funskjoner mm. Invarianten i en klasse er private som default, i motsetning
 til i en struct hvor alt er public som default
 */
 
 //medlemsvariabler? medlemsfunksjoner?
-//typer = et løfte/kontrakt om hvordan noe ser ut for c++ (hva du tar inn altså)
+//typer = et lÃ¸fte/kontrakt om hvordan noe ser ut for c++ (hva du tar inn altsÃ¥)
