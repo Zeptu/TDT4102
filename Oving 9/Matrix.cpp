@@ -1,19 +1,19 @@
 #include "Matrix.h"
 
-//Konstruktør 1
+//KonstruktÃ¸r 1
 Matrix::Matrix()
 	: matrix{ nullptr }, N{ 0 }, M{ 0 }
 {}
 
-//Konstruktør 2
+//KonstruktÃ¸r 2
 Matrix::Matrix(int nRows, int nColumns)
 	: M {nRows}, N{ nColumns } 
 {
 
-		matrix = new double*[nRows];		//ALLOKERER MINNE //Dobbeltpeker - en peker til en peker
+		matrix = new double*[nRows];				//ALLOKERER MINNE //Dobbeltpeker - en peker til en peker
 		for (int i = 0; i < nRows; ++i)
 		{
-			matrix[i] = new double[nColumns];		//ALLOKERER MINNE //Peker på den faktiske minneadressen
+			matrix[i] = new double[nColumns];		//ALLOKERER MINNE //Peker pÃ¥ den faktiske minneadressen
 			for (int j = 0; j < nColumns; ++j)
 			{
 				matrix[i][j] = 0;
@@ -21,7 +21,7 @@ Matrix::Matrix(int nRows, int nColumns)
 		}
 }
 
-//Konstruktør 3 - "funker"-Sander
+//KonstruktÃ¸r 3 - "funker"-Sander
  Matrix::Matrix(int nRows)	//Lag identitetsmatrisen
 	:Matrix(nRows, nRows)
 {
@@ -32,8 +32,8 @@ Matrix::Matrix(int nRows, int nColumns)
 		}	
 };
 
-//explicit nøkkelordeet: gjør at den aktuelle konstruktøren IKKE kan brukes 
-//til å automatisk konvertere andre typer til denn aktuelle klassen 
+//explicit nÃ¸kkelordeet: gjÃ¸r at den aktuelle konstruktÃ¸ren IKKE kan brukes 
+//til Ã¥ automatisk konvertere andre typer til denn aktuelle klassen 
 
 double Matrix::getMatrix(int row, int col) const
 {
@@ -100,62 +100,63 @@ std::ostream& operator<<(std::ostream& os, const Matrix& mat)
 
 }
 
-//Kopikonstruktør for Matrix-klassen
+//KopikonstruktÃ¸r for Matrix-klassen
 Matrix::Matrix(const Matrix & rhs)
 	: matrix{ nullptr }, M{rhs.getRows()}, N{rhs.getColumns()}
-	//initialiserer matrix til nullptr for å unngå dumme feil
-	//Bruker getRows og getColumns for å initialisere M og N til antall rader(M) og antall kolonner(N)
+	//initialiserer matrix til nullptr for Ã¥ unngÃ¥ dumme feil
+	//Bruker getRows og getColumns for Ã¥ initialisere M og N til antall rader(M) og antall kolonner(N)
 {
-	if (rhs.isValid())								//Sjekker om matrisen har en gyldig verdi (dvs: matrix > 0)
+	if (rhs.isValid())							//Sjekker om matrisen har en gyldig verdi (dvs: matrix > 0)
 	{
 		matrix = new double*[M];					//Allokerer nytt minne for antall rader i matrisen
 		for (int i = 0; i < M; ++i)					//Itererer rader-antall ganger
 		{
-			matrix[i] = new double[N] {};			//Allokerer nytt minne for antall kolonner i matrisen
+			matrix[i] = new double[N] {};				//Allokerer nytt minne for antall kolonner i matrisen
 			for (int j = 0; j < N; ++j)				//Itererer kolonne - antall ganger 
 			{
-				matrix[i][j] = rhs.matrix[i][j];	//Kopierer verdien fra matrix over til det ny objektet rhs
+				matrix[i][j] = rhs.matrix[i][j];		//Kopierer verdien fra matrix over til det ny objektet rhs
 			}
 		}
 	}
 }
-//Kopikonstruktører gir masse mening!!
+//KopikonstruktÃ¸rer gir masse mening!!
 /*
-Må passe på at de to objektene ikke okkuperer samme plass i minnet
+MÃ¥ passe pÃ¥ at de to objektene ikke okkuperer samme plass i minnet
 Derfor allokerer vi nyttMINNE for det nye objektet
-Også kopierer vi VERDIEN fra det gamle objektet over til det nye objektet
+OgsÃ¥ kopierer vi VERDIEN fra det gamle objektet over til det nye objektet
 */
 
 
 //Tilordningsoperator for Matrix-klassen 
 //Bruker Copy-and-swap - metoden
-Matrix &Matrix::operator=(Matrix rhs)		//Tar inn en rhs som cbV, tar da inn en kopi(rhs) som automatisk ioorettes med bruk av kopikonstruktøren
+Matrix &Matrix::operator=(Matrix rhs)		//Tar inn en rhs som cbV, tar da inn en kopi(rhs) som automatisk ioorettes med bruk av kopikonstruktÃ¸ren
 {
 	//Swapper 
-	std::swap(M, rhs.M);					//swapper alle medlemsvariabler  mellom objektene
-											//lhs tilordnes da rhs sin data(verdier + allokasjoner)
-											//rhs får det som skal slettes - destruktør kalles når forlater scope
+	std::swap(M, rhs.M);			//swapper alle medlemsvariabler  mellom objektene
+						//lhs tilordnes da rhs sin data(verdier + allokasjoner)
+						//rhs fÃ¥r det som skal slettes - destruktÃ¸r kalles nÃ¥r forlater scope
 	std::swap(N, rhs.N);
 	std::swap(matrix, rhs.matrix);
 	
-	return *this;							//returnerer this, en peker til objektet
+	return *this;				//returnerer this, en peker til objektet
 
-	//Hensiktsmessig å kopiere alt over til rhs fordi rhs er en LOKAL
-	//MEDLEMSVARIABEL, og blir automatisk slettet når den får ut av scope
-	//Altså slipper vi å tenke på typ deallokering av minne
+	//Hensiktsmessig Ã¥ kopiere alt over til rhs fordi rhs er en LOKAL
+	//MEDLEMSVARIABEL, og blir automatisk slettet nÃ¥r den fÃ¥r ut av scope
+	//AltsÃ¥ slipper vi Ã¥ tenke pÃ¥ typ deallokering av minne
 }
 
 /*
 Copy-and-swap:
-	- Bruker en cbV parameter for høyreoperanden, da tar vi inn en kopi(rhs) som automatisk opprettes ved 
-	bruk av kopi-konsturktøren.
+	- Bruker en cbV parameter for hÃ¸yreoperanden, da tar vi inn en kopi(rhs) som automatisk opprettes ved 
+	bruk av kopi-konsturktÃ¸ren.
+	
 	- Deretter swapper vi alle medlemsvariabler(inkludert pekere til allokert data) mellom de to objektene.
-	Dermed får this (venstresiden) tilordnet høyresidens verdier (og allokerte data), og 
+	Dermed fÃ¥r this (venstresiden) tilordnet hÃ¸yresidens verdier (og allokerte data), og 
 	rhs ender opp med det som skal slettes. 
-	Siden rhs er en lokal variabel vil destruktøren dens automatisk bli kalt når den går ut av scope. 
+	Siden rhs er en lokal variabel vil destruktÃ¸ren dens automatisk bli kalt nÃ¥r den gÃ¥r ut av scope. 
 */
 
-//Destruktør
+//DestruktÃ¸r
 Matrix::~Matrix()
 {
 	delete[] matrix;
