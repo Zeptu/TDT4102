@@ -6,7 +6,7 @@
 #include "GUI.h"
 #include "std_lib_facilities.h"
 
-using namespace Graph_lib;							// ???
+using namespace Graph_lib;						
 
 class Emoji								//Emoji er en abstrakt klasse. Emoji er Baseklassen vår. 
 {									//Må implementere medlemsfunksjonen attach_to()
