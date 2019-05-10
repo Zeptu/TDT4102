@@ -4,7 +4,7 @@
 
 //Oppretter scoped-enum
 
-enum class Suits{ clubs, diamonds, hearts, spades };		//Lager enum-class-typen Suits
+enum class Suits{ clubs, diamonds, hearts, spades };							//Lager enum-class-typen Suits
 enum class Rank{ two = 2, three, four, five, six, seven, eight, nine, ten, jack, queen , king , ace };	//Lager enum-class-typen Rank
 
 const map<Suits, string> suitStrings {	//map_1
