@@ -10,16 +10,17 @@ private:
 	int dealer{ 0 };					  //lagrer verdien til spiller
 
 public:
-	Blackjack();						//Konstruktøren				  
+	Blackjack();						//KonstruktÃ¸ren				  
 	void playBlackjack();
 
 };
 
 /*
-Konstruktøren 
-- er en "spesiell medlemsfunksjon" av en klasse som utføres
-	når vi lager et objekt av klassen.
+KonstruktÃ¸ren 
+- er en "spesiell medlemsfunksjon" av en klasse som utfÃ¸res
+	nÃ¥r vi lager et objekt av klassen.
 
 - har alltid samme navn som klassen, og har ingen returtype(ikke engang void)
-- kan brukes til å sette startverdier til noen medlemsvariabler
+- kan brukes til Ã¥ sette startverdier til noen medlemsvariabler med
+medlemsinitialiseringsliste
 */
